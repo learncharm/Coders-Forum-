@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Home from "./components/home";
 import Admin from "./components/Admin/Admin";
+import Category from "./components/Admin/Category/Category";
 import {
   BrowserRouter,
   Route,
@@ -34,6 +35,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
+      <Route path='/admin/category' element={<Category/>}></Route>
     </Routes>
 
 </BrowserRouter>
