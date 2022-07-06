@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Home from "./components/home";
 import Admin from "./components/Admin/Admin";
+import Category from "./components/Admin/Category/Category";
+import CategoryState from './components/Admin/Context/Category/CategoryState';
 import {
   BrowserRouter,
   Route,
@@ -28,15 +30,19 @@ function App() {
   }, []);
   return (
     <>
+    <CategoryState>
     <div class="alan-btn"></div>
 
 <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
+      <Route path='/admin/category' element={<Category/>}></Route>
     </Routes>
 
 </BrowserRouter>
+
+</CategoryState>
   
   </>
   );
