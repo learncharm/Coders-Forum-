@@ -3,6 +3,7 @@ import { Table, Drawer, Button, Form } from 'rsuite';
 import categoryContext from '../Context/Category/categoryContext';
 import 'rsuite/dist/rsuite.min.css'
 import AddCategory from './AddCategory';
+import TrashIcon from '@rsuite/icons/Trash';
 
 export default function Category(props) {
     const context = useContext(categoryContext);
@@ -80,7 +81,7 @@ export default function Category(props) {
             }
             return (
               <span>
-                <a onClick={handleAction}> Remove </a>
+                <a onClick={handleAction}> <TrashIcon/> </a>
               </span>
             );
           }}
