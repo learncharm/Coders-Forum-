@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./components/home";
 import Admin from "./components/Admin/Admin";
 import Category from "./components/Admin/Category/Category";
+import CategoryState from './components/Admin/Context/Category/CategoryState';
 import {
   BrowserRouter,
   Route,
@@ -29,6 +30,7 @@ function App() {
   }, []);
   return (
     <>
+    <CategoryState>
     <div class="alan-btn"></div>
 
 <BrowserRouter>
@@ -39,6 +41,8 @@ function App() {
     </Routes>
 
 </BrowserRouter>
+
+</CategoryState>
   
   </>
   );
