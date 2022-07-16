@@ -1,0 +1,124 @@
+
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 240px;
+    background: #1F4690;
+    padding: 6px 14px;
+    z-index: 99;
+}
+.sidebar .logo_content .logo{
+    color: #FFE5B4;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+}
+.logo_content .logo .logo_name{
+    font-size: 20px;
+    font-weight: 400;
+}
+.sidebar #btn{
+    color: #FFE5B4;
+    position: absolute;
+    left: 90%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.sidebar ul{
+    margin-top: 20px;
+
+}
+.sidebar ul li{
+    list-style: none;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    margin: 0 5px;
+}
+.sidebar ul li  .tooltip{
+    position: absolute;
+    left: 122px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 35px;
+    width: 122px;
+    background: #FFE5B4;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.sidebar ul li input{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: #3A5BA0;
+    padding-left: 50px;
+    font-size: 18px;
+    color: #FFE5B4;
+}
+.sidebar ul li  .bx-search-alt{
+    position: absolute;
+    z-index: 99;
+    color: #FFE5B4;
+    font-size: 22px;
+}
+.sidebar ul li a{
+    color: #FFE5B4;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+}
+.sidebar ul li a:hover{
+    background: #FFE5B4;
+    color: #1F4690;
+
+}
+.sidebar ul li i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.sidebar .profile_content{
+    position: absolute;
+    color: #FFE5B4;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background: #3A5BA0;
+}
+
+.profile #log_out{
+    position: absolute;
+    left: 88%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+
+}
