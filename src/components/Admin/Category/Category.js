@@ -3,7 +3,9 @@ import { Table, Drawer, Button, Form } from 'rsuite';
 import categoryContext from '../Context/Category/categoryContext';
 import 'rsuite/dist/rsuite.min.css'
 import AddCategory from './AddCategory';
+import SideNav from '../SideNav/SideNav';
 import TrashIcon from '@rsuite/icons/Trash';
+import './Category.css';
 
 export default function Category(props) {
     const context = useContext(categoryContext);
@@ -24,7 +26,10 @@ export default function Category(props) {
    
     return (
         <>
-            <div>
+        <SideNav/>
+            <div className="content">
+                <h2 className="category_head">Categories</h2>
+                <hr className="category_hr" />
                 <Button onClick={() => setOpen(true)}>Add Category</Button>
 
 
@@ -44,7 +49,7 @@ export default function Category(props) {
 
                 <Table
        
-          height={1000}
+          height={500}
       
           
           data={category}

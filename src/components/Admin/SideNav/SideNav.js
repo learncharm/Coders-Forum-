@@ -1,43 +1,70 @@
-import React, {useEffect, useState} from 'react';
-import {Sidenav, Nav } from 'rsuite';
+import React from 'react';
+import './SideNav.css';
+import 'boxicons';
 import { Link } from 'react-router-dom';
-import {Dashboard} from '@rsuite/icons';
-import  'rsuite/dist/rsuite.min.css'
 
 
 export default function SideNav() {
- 
   return (
+    <div>
+      <div className="sidebar">
+        <div className="logo_content">
+          <div className="logo">
+            <div className="logo_name">Coders Forum</div>
+          </div>
+          <i class='bx bx-menu' id="btn" ></i>
+          <ul className="nav_list">
+            <li>
+              
+              <i class='bx bx-search-alt'></i>
+              <input type="text" placeholder='Search...' />
+              
+              <span className="tooltip">Search</span>
+            </li>
+            <li>
+              <Link to="/admin">
+              <i class='bx bx-grid-alt' ></i>
+              <span className="links_name">Dashboard</span>
+              </Link>
+              <span className="tooltip">Dashboard</span>
+            </li>
+            <li>
+              <Link to="/admin/category">
+              <i class='bx bxs-package' ></i>
+              <span className="links_name">Category</span>
+              </Link>
+              <span className="tooltip">Category</span>
+            </li>
+            <li>
+              <Link to="/admin">
+              <i class='bx bx-git-branch' ></i>
+              <span className="links_name">Threads</span>
+              </Link>
+              <span className="tooltip">Threads</span>
+            </li>
+            <li>
+              <Link to="/admin">
+              <i class='bx bx-user' ></i>
+              <span className="links_name">Users</span>
+              </Link>
+              <span className="tooltip">Users</span>
+            </li>
+            <li>
+              <Link to="/admin">
+              <i class='bx bx-message-square-dots' ></i>
+              <span className="links_name">Comments</span>
+              </Link>
+              <span className="tooltip">Comments</span>
+            </li>
+          </ul>
 
-    <div style={{ width: 240 }}>
-    <Sidenav defaultOpenKeys={['3', '4']}>
-      <Sidenav.Body>
-        <Nav activeKey="1">
-          <Nav.Item eventKey="1" icon={<Dashboard />}>
-            <Link to='/admin/'>Dashboard</Link>
-            
-          </Nav.Item>
-          <Nav.Item eventKey="2" >
-            <Link to='/admin/category'>Category</Link>
-          </Nav.Item>
-          <Nav.Menu eventKey="3" title="Advanced" >
-            <Nav.Item eventKey="3-1">Geo</Nav.Item>
-            <Nav.Item eventKey="3-2">Devices</Nav.Item>
-            <Nav.Item eventKey="3-3">Loyalty</Nav.Item>
-            <Nav.Item eventKey="3-4">Visit Depth</Nav.Item>
-          </Nav.Menu>
-          <Nav.Menu eventKey="4" title="Settings">
-            <Nav.Item eventKey="4-1">Applications</Nav.Item>
-            <Nav.Item eventKey="4-2">Channels</Nav.Item>
-            <Nav.Item eventKey="4-3">Versions</Nav.Item>
-            <Nav.Menu eventKey="4-5" title="Custom Action">
-              <Nav.Item eventKey="4-5-1">Action Name</Nav.Item>
-              <Nav.Item eventKey="4-5-2">Action Params</Nav.Item>
-            </Nav.Menu>
-          </Nav.Menu>
-        </Nav>
-      </Sidenav.Body>
-    </Sidenav>
+          <div className="profile_content">
+            <div className="profile">
+              <i class='bx bx-log-out' id='log_out'></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

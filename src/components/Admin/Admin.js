@@ -1,14 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import 'rsuite/dist/rsuite.min.css'
 import SideNav from './SideNav/SideNav';
-import  'rsuite/dist/rsuite.min.css'
 
 
 export default function Admin() {
- 
   return (
     <>
-      <SideNav/>
+    <SideNav/>
+    <div className="content">
+                <h2 className="category_head">Dashboard</h2>
+                <hr className="category_hr" />
+      </div>
     </>
- 
+
   )
 }
