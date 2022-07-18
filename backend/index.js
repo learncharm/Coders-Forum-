@@ -15,6 +15,7 @@ app.use(express.json());   // this middleware is used for req.body
 app.use('/api/category',require('./routes/category'));
 app.use('/api/auth',require('./routes/auth'));
 app.use('/api/thread',require('./routes/thread'));
+app.use('/api/comment',require('./routes/comment'));
 
 app.listen(port, () => {
   console.log(`Coders-Forum app listening on port ${port}`)

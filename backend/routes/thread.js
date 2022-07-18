@@ -4,16 +4,30 @@ const fetchuser = require('../middleware/fetchuser');
 const Thread = require('../models/Thread');
 const { body, validationResult } = require('express-validator');
 
-// Route 1 : Get all Threads using : GET "/api/thread/fetchallthreads". Login required
+// Route 1 : Get all Threads of user using : GET "/api/thread/fetchallthreads". Login required
 
-router.get('/fetchallthreads', fetchuser, async (req, res) => {
+router.get('/fetchuserthreads', fetchuser, async (req, res) => {
     const threads = await Thread.find({ userid: req.user.id });
+    res.json(threads);
+})
+
+// Route 1.1 : Get all Threads of particular category using : GET "/api/thread/fetchallthreads". No Login required
+
+router.get('/fetchallthreads/:category', async (req, res) => {
+    const threads = await Thread.find({ category: req.params.category });
+    res.json(threads);
+})
+
+// Route 1.2 : Get all Threads using : GET "/api/thread/allthreads". No Login required
+
+router.get('/allthreads', async (req, res) => {
+    const threads = await Thread.find();
     res.json(threads);
 })
 
 // Route 2 : Add a new Thread using : POST "/api/thread/addthread". Login required
 
-router.post('/addthread', fetchuser, [
+router.post('/addthread/:category', fetchuser, [
     body('title', 'Enter a valid Title').isLength({ min: 3 }),
     body('description', 'Description must be atleast 5 characters').isLength({ min: 5 }),
 ], async (req, res) => {
@@ -28,7 +42,7 @@ router.post('/addthread', fetchuser, [
         }
 
         const thread = new Thread({
-            title, description, userid: req.user.id
+            title, description, userid: req.user.id,category: req.params.category
         })
         const saveThread = await thread.save();
 

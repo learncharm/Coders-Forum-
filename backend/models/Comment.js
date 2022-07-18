@@ -1,20 +1,16 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const ThreadSchema = new Schema({
+const CommentSchema = new Schema({
     userid : {
         type : mongoose.Schema.Types.ObjectId,
         ref : 'User'
     },
-    title : {
+    threadid : {
         type : String,
         required : true
     },
     description : {
-        type : String,
-        required : true
-    },
-    category : {
         type : String,
         required : true
     },
@@ -24,4 +20,4 @@ const ThreadSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('thread',ThreadSchema);
+module.exports = mongoose.model('comment',CommentSchema);
