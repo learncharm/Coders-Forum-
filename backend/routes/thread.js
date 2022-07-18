@@ -4,7 +4,14 @@ const fetchuser = require('../middleware/fetchuser');
 const Thread = require('../models/Thread');
 const { body, validationResult } = require('express-validator');
 
-// Route 1 : Add a new Thread using : POST "/api/thread/addthread". Login required
+// Route 1 : Get all Threads using : GET "/api/thread/fetchallthreads". Login required
+
+router.get('/fetchallthreads', fetchuser, async (req, res) => {
+    const threads = await Thread.find({ userid: req.user.id });
+    res.json(threads);
+})
+
+// Route 2 : Add a new Thread using : POST "/api/thread/addthread". Login required
 
 router.post('/addthread', fetchuser, [
     body('title', 'Enter a valid Title').isLength({ min: 3 }),
@@ -26,6 +33,32 @@ router.post('/addthread', fetchuser, [
         const saveThread = await thread.save();
 
         res.json(saveThread);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
+// Route 4 : Delete an existing Thread using : DELETE "api/thread/deletethread". Login Required
+
+router.delete('/deletethread/:id', fetchuser, async (req, res) => {
+
+    try {
+
+        // Find the note to be deleted and delete it
+        let thread = await Thread.findById(req.params.id);
+        if (!thread) {
+            return res.status(404).send("Not Found");
+        }
+
+        // Allow deletion only if user owns this Thread
+        if (thread.userid.toString() !== req.user.id) {
+            return res.status(401).send("Not Allowed");
+        }
+
+        thread = await Thread.findByIdAndDelete(req.params.id);
+
+        res.json({ Success: "Thread has been Deleted" });
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Internal Server Error");
