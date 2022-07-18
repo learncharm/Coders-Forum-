@@ -39,6 +39,38 @@ router.post('/addthread', fetchuser, [
     }
 })
 
+// Route 3 : Update an existing Thread using : PUT "api/thread/updatethread". Login Required
+
+router.put('/updatethread/:id', fetchuser, async (req, res) => {
+    const { title, description } = req.body;
+
+    try {
+
+        // Create a new Thread object
+        const newThread = {};
+
+        if (title) { newThread.title = title }
+        if (description) { newThread.description = description }
+
+        // Find the note to be updated and update it
+        let thread = await Thread.findById(req.params.id);
+        if (!thread) {
+            return res.status(404).send("Not Found");
+        }
+
+        if (thread.userid.toString() !== req.user.id) {
+            return res.status(401).send("Not Allowed");
+        }
+
+        thread = await Thread.findByIdAndUpdate(req.params.id, { $set: newThread }, { new: true });
+
+        res.json({ thread });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
 // Route 4 : Delete an existing Thread using : DELETE "api/thread/deletethread". Login Required
 
 router.delete('/deletethread/:id', fetchuser, async (req, res) => {
