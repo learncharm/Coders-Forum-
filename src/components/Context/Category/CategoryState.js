@@ -2,17 +2,18 @@ import { useState } from "react";
 import CategoryContext from "./categoryContext";
 
 const CategoryState = (props)=> {
+    const host = "http://localhost:5000";
 
-    const [category, setCategory] = useState([]);
     // Fetch Category
         const getCategory = async () => {
             //API Call
             const response = await fetch(`http://localhost:5000/api/category/fetchallcategory`);
             const json = await response.json();
-            console.log(json);
+            // console.log(json);
             setCategory(json);
         }
          
+        const [category, setCategory] = useState([]);
 
         //Add Category
 
