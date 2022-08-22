@@ -1,20 +1,21 @@
 import React from 'react'
-import { Button, Uploader  } from 'rsuite';
-
-import  'rsuite/dist/rsuite.min.css'
+import CategoryCard from './CategoryCard/CategoryCard';
 
 
 export default function home() {
-  const styles = {
-    lineHeight: '200px'
-  };
+
   return (
     <div>
-       <Uploader action="//jsonplaceholder.typicode.com/posts/" draggable>
-      <div style={styles}>Click or Drag files to this area to upload</div>
-    </Uploader>
-    
-     <Button>Ghost</Button>
+      <div className="container-fluid my-3">
+        <h3>Welcome,  </h3>
+        <hr />
+        <section className="categories">
+          <h3>Categories</h3>
+          <hr />
+          <CategoryCard />
+        </section>
+      </div>
+
 
     </div>
   )

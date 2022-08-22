@@ -1,25 +1,22 @@
 import React, { useEffect, useContext } from 'react';
 import { Table, Drawer, Button, Form } from 'rsuite';
-import categoryContext from '../Context/Category/categoryContext';
+import ThreadContext from '../Context/Thread/threadContext';
 import 'rsuite/dist/rsuite.min.css'
-import AddCategory from './AddCategory';
 import SideNav from '../SideNav/SideNav';
 import TrashIcon from '@rsuite/icons/Trash';
-import './Category.css';
 
-export default function Category(props) {
-    const context = useContext(categoryContext);
-    const {category, getCategory, deleteCategory} = context;
-    const {categories} = props;
+export default function Thread(props) {
+    const TContext = useContext(ThreadContext);
+    const {thread, getAllThread} = TContext;
+    const {threads} = props;
 
   
     useEffect(() => {
-        getCategory();
+        getAllThread();
     }, [])
 
   
-    const [backdrop, setBackdrop] = React.useState('static');
-    const [open, setOpen] = React.useState(false);
+  
 
 
 
@@ -30,31 +27,17 @@ export default function Category(props) {
             <div className="content">
                 <h2 className="category_head">Categories</h2>
                 <hr className="category_hr" />
-                <Button onClick={() => setOpen(true)}>Add Category</Button>
 
 
-                <Drawer backdrop={backdrop} open={open} onClose={() => setOpen(false)}>
-                    <Drawer.Header>
-                        <Drawer.Title>Add New Category</Drawer.Title>
-                        <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)}>Cancel</Button>
-
-                        </Drawer.Actions>
-                    </Drawer.Header>
-                    <Drawer.Body>
-                     
-                        <AddCategory/>
-                    </Drawer.Body>
-                </Drawer>
 
                 <Table
        
           height={500}
       
           
-          data={category}
+          data={thread}
                     onRowClick={data => {
-                        // console.log(data);
+                        console.log(data);
                     }}>
 
                 
@@ -76,7 +59,7 @@ export default function Category(props) {
                     <Table.Column width={120} fixed="right">
         <Table.HeaderCell>Action</Table.HeaderCell>
 
-        <Table.Cell>
+        {/* <Table.Cell>
           
             
         {data => {
@@ -91,7 +74,7 @@ export default function Category(props) {
           }}
         
         
-        </Table.Cell>
+        </Table.Cell> */}
       </Table.Column>
                 </Table>
 

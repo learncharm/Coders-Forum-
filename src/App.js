@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
 import Home from "./components/home";
+import NavBar from './components/NavBar/NavBar';
 import Admin from "./components/Admin/Admin";
+import AdminThread from "./components/Admin/Thread/Thread";
+import Thread from "./components/Thread/Thread";
 import Category from "./components/Admin/Category/Category";
 import CategoryState from './components/Admin/Context/Category/CategoryState';
 import {
@@ -34,10 +37,13 @@ function App() {
     <div class="alan-btn"></div>
 
 <BrowserRouter>
+    <NavBar/>
     <Routes>
-      <Route path='/' element={<Home/>}></Route>
+      <Route path='/' element={ <Home/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
       <Route path='/admin/category' element={<Category/>}></Route>
+      <Route path='/thread/' element={<Thread/>}></Route>
+      <Route path='/admin/thread' element={<AdminThread/>}></Route>
     </Routes>
 
 </BrowserRouter>

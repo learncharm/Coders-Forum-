@@ -1,0 +1,32 @@
+.cat-card{
+    background: #D8FFF3;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
+}
+.cat-card:hover{
+    box-shadow: 5px 5px 5px 3px #04946457;
+}
+.cat-card .card-body .card-title{
+    color: #049464;
+    font-weight: bold;
+    font-size: 20px;
+}
+.cat-card .card-body .card-text{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.cat-card .card-body .card-link{
+    border-radius: 50px;
+    background: #049464;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+.cat-card .card-body .card-link:hover{
+    background: transparent;
+    border: 2px solid #049464;
+    color: #049464;
+}
