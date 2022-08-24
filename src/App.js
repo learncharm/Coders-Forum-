@@ -43,7 +43,7 @@ function App() {
       <Route path='/' element={ <Home/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
       <Route path='/admin/category' element={<Category/>}></Route>
-      <Route path='/thread/' element={<Thread/>}></Route>
+      <Route path='/thread/:category' element={<Thread/>}></Route>
       <Route path='/admin/thread' element={<AdminThread/>}></Route>
       <Route path='/admin/comment' element={<AdminComment/>}></Route>
     </Routes>
