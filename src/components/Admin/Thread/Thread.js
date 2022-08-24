@@ -1,19 +1,26 @@
-import React, { useEffect, useContext } from 'react';
-import { Table, Drawer, Button, Form } from 'rsuite';
-import ThreadContext from '../Context/Thread/threadContext';
+import React, { useEffect, useState } from 'react';
 import 'rsuite/dist/rsuite.min.css'
-import SideNav from '../SideNav/SideNav';
-import TrashIcon from '@rsuite/icons/Trash';
+import ThreadDetails from './ThreadDetails'
 
 export default function Thread(props) {
-    const TContext = useContext(ThreadContext);
-    const {thread, getAllThread} = TContext;
-    const {threads} = props;
+   const [thread, setThread] = useState([]); 
 
-  
+    const getAllThread = async () => {
+        //API Call
+        const response = await fetch(`http://localhost:5000/api/thread/allthreads`);
+        const json = await response.json();
+        console.log(json);
+        setThread(json);
+    }
     useEffect(() => {
         getAllThread();
-    }, [])
+       }, []);
+       const options = {method: 'GET'};
+
+fetch('http://localhost:5000/api/thread/allthreads', options)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
 
   
   
@@ -23,63 +30,22 @@ export default function Thread(props) {
    
     return (
         <>
-        <SideNav/>
-            <div className="content">
-                <h2 className="category_head">Categories</h2>
-                <hr className="category_hr" />
-
-
-
-                <Table
-       
-          height={500}
-      
-          
-          data={thread}
-                    onRowClick={data => {
-                        console.log(data);
-                    }}>
-
-                
-
-                    <Table.Column width={70} align="center" resizable>
-                        <Table.HeaderCell>No.</Table.HeaderCell>
-                        <Table.Cell>🌟</Table.Cell>
-                    </Table.Column>
-                    <Table.Column width={70} align="center" resizable>
-                        <Table.HeaderCell>Title</Table.HeaderCell>
-                        <Table.Cell dataKey="title" />
-                    </Table.Column>
-
-                    <Table.Column width={300} align="center" resizable>
-                        <Table.HeaderCell>Description</Table.HeaderCell>
-                        <Table.Cell dataKey="description" />
-                    </Table.Column>
-
-                    <Table.Column width={120} fixed="right">
-        <Table.HeaderCell>Action</Table.HeaderCell>
-
-        {/* <Table.Cell>
-          
-            
-        {data => {
-            function handleAction() {
-              deleteCategory(data._id)
-            }
-            return (
-              <span>
-                <a onClick={handleAction}> <TrashIcon/> </a>
-              </span>
-            );
-          }}
+<table className="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+                {thread.map((threads)=> {
+            return <ThreadDetails threads = {threads} />
+        })}
+        </tbody>
+        </table>
         
-        
-        </Table.Cell> */}
-      </Table.Column>
-                </Table>
-
-
-            </div>
         </>
     )
 }
