@@ -15,12 +15,12 @@ export default function Thread(props) {
     useEffect(() => {
         getAllThread();
        }, []);
-       const options = {method: 'GET'};
+      //  const options = {method: 'GET'};
 
-fetch('http://localhost:5000/api/thread/allthreads', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+// fetch('http://localhost:5000/api/thread/allthreads', options)
+//   .then(response => response.json())
+//   .then(response => console.log(response))
+//   .catch(err => console.error(err));
 
   
   

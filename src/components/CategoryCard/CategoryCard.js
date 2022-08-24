@@ -22,8 +22,8 @@ export default function Category(props) {
    
     return (
 <>
-<div class="container">
-    <div class="row">
+<div className="container">
+    <div className="row">
         
         {category.map((categories)=> {
             return <CardDetails categories = {categories} />
