@@ -26,7 +26,7 @@ export default function Category(props) {
     <div className="row">
         
         {category.map((categories)=> {
-            return <CardDetails categories = {categories} />
+            return <CardDetails key={categories._id} categories = {categories} />
         })}
     </div>
     </div>
