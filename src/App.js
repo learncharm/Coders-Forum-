@@ -6,6 +6,7 @@ import Admin from "./components/Admin/Admin";
 import AdminThread from "./components/Admin/Thread/Thread";
 import AdminComment from "./components/Admin/Comment/Comment";
 import Thread from "./components/Thread/Thread";
+import Pthread from "./components/Pthread/Pthread";
 import Category from "./components/Admin/Category/Category";
 import CategoryState from './components/Admin/Context/Category/CategoryState';
 import {
@@ -43,7 +44,8 @@ function App() {
       <Route path='/' element={ <Home/>}></Route>
       <Route path='/admin' element={<Admin/>}></Route>
       <Route path='/admin/category' element={<Category/>}></Route>
-      <Route path='/thread/:category' element={<Thread/>}></Route>
+      <Route path='/threads/:category' element={<Thread/>}></Route>
+      <Route path='/thread/:threadid' element={<Pthread/>}></Route>
       <Route path='/admin/thread' element={<AdminThread/>}></Route>
       <Route path='/admin/comment' element={<AdminComment/>}></Route>
     </Routes>
