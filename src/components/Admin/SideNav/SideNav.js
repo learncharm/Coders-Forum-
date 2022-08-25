@@ -36,7 +36,7 @@ export default function SideNav() {
               <span className="tooltip">Category</span>
             </li>
             <li>
-              <Link to="/admin">
+              <Link to="/admin/thread">
               <i class='bx bx-git-branch' ></i>
               <span className="links_name">Threads</span>
               </Link>
@@ -50,7 +50,7 @@ export default function SideNav() {
               <span className="tooltip">Users</span>
             </li>
             <li>
-              <Link to="/admin">
+              <Link to="/admin/comment">
               <i class='bx bx-message-square-dots' ></i>
               <span className="links_name">Comments</span>
               </Link>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'rsuite/dist/rsuite.min.css'
 import ThreadDetails from './ThreadDetails'
+import SideNav from '../SideNav/SideNav';
 
 export default function Thread(props) {
    const [thread, setThread] = useState([]); 
@@ -30,6 +31,7 @@ export default function Thread(props) {
    
     return (
         <>
+        <SideNav/>
 <table className="table">
   <thead>
     <tr>

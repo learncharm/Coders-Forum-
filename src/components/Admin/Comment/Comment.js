@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'rsuite/dist/rsuite.min.css'
-import CommentDetails from './CommentDetails'
+import CommentDetails from './CommentDetails';
+import SideNav from '../SideNav/SideNav';
 
 export default function Comment(props) {
    const [comment, setComment] = useState([]); 
@@ -24,6 +25,7 @@ export default function Comment(props) {
    
     return (
         <>
+        <SideNav/>
 <div className='col-md-4 mt-3'>
 <table className="table ">
   <thead>
