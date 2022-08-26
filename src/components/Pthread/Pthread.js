@@ -54,11 +54,25 @@ export default function Pthread(props) {
                 <h2 className='my-2'>{tcs.title}</h2>
                 <br />
                 <p className='my-2'>{tcs.description}</p>
+                <p className='my-2'>{tcs.date}</p>
+                {user.map((users) => {
+                  if (users._id == tcs.userid)
+                    return <p>By {users.name}</p>
+                })}
               </>
           })}
 
-          <div className='container'>
-            {comment.length === 0 && 'No Comments To Display'}
+          <form>
+            <h3 className='my-2'>Add Comment</h3>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">Comment</label>
+              <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            </div>
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </form>
+
+          <div className='container py-2'>
+            {comment.length === 0 && 'No Comments To Display...'}
           </div>
 
           {comment.map((comments) => {

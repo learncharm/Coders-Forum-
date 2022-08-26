@@ -1,8 +1,6 @@
 import React, { useEffect, useContext } from 'react';
-import { Table, Drawer, Button, Form } from 'rsuite';
 import categoryContext from '../Admin/Context/Category/categoryContext';
 import 'rsuite/dist/rsuite.min.css'
-import TrashIcon from '@rsuite/icons/Trash';
 import CardDetails from './CardDetails/CardDetails';
 
 export default function Category(props) {
@@ -13,12 +11,6 @@ export default function Category(props) {
     useEffect(() => {
         getCategory();
     }, [])
-
-  
-  
-
-
-
    
     return (
 <>

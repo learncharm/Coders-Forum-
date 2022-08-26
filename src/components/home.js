@@ -6,8 +6,8 @@ export default function home() {
 
   return (
     <div>
-      <div className="container-fluid my-3">
-        <h3>Welcome,  </h3>
+      <div className="container my-3">
+        <h3>Welcome,</h3>
         <hr />
         <section className="categories">
           <h3>Categories</h3>
