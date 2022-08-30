@@ -33,7 +33,7 @@ export default function Thread(props) {
   const [description , setDescription] = useState("");
 
   const onsubmit = async () => {
-    const response = await fetch(`http://localhost:5000/api/api/thread/addthread/`+category, {
+    const response = await fetch(`http://localhost:5000/api/thread/addthread/`+category, {
       mode: "no-cors",
       method: 'POST',
       headers: {
@@ -69,7 +69,7 @@ export default function Thread(props) {
           })}
 
           {/* <Addthread/> */}
-          <form method='post'>
+          <form>
             <h3 className='my-2'>Add Your Question</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
