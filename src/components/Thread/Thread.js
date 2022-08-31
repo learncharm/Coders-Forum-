@@ -29,22 +29,38 @@ export default function Thread(props) {
     setThread(json);
   }
 
-  const [title , setTitle] = useState("");
-  const [description , setDescription] = useState("");
+  const [userThread, setUserThread] = useState({
+    title: "", description: ""
+  });
 
-  const onsubmit = async () => {
-    const response = await fetch(`http://localhost:5000/api/thread/addthread/`+category, {
-      mode: "no-cors",
+  let name, value;
+  const handleInputs = (e) => {
+    // console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+
+    setUserThread({ ...userThread, [name]: value });
+  }
+  const PostData = async (e) => {
+    e.preventDefault();
+
+    const { title , description } = userThread;
+
+    const response = await fetch(`http://localhost:5000/api/thread/addthread/` + category, {
+      // mode: "no-cors",
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json',
-          'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJjNmY4NGRmZGFhYjEwZDFmMWFmZDVlIn0sImlhdCI6MTY1ODE0NjM3M30.8ntK3bNSi9hvj7bXP6fZyDbTfmB6GKzfxbKufifBnyY'
-          // 'auth-token': localStorage.getItem('token')
+        'Content-Type': 'application/json',
+        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJjNmY4NGRmZGFhYjEwZDFmMWFmZDVlIn0sImlhdCI6MTY1ODE0NjM3M30.8ntK3bNSi9hvj7bXP6fZyDbTfmB6GKzfxbKufifBnyY'
+        // 'auth-token': localStorage.getItem('token')
       },
-      body: JSON.stringify({title,description})
-  });
-  // const thread = await response.json();
-  // setThreads(threads.concat(thread))
+      body: JSON.stringify({ title, description })
+    });
+    const res = await response.json(); 
+    // console.log(res)
+
+    getAllThread();
+    setUserThread({title: "", description: ""});
   }
 
   useEffect(() => {
@@ -69,17 +85,17 @@ export default function Thread(props) {
           })}
 
           {/* <Addthread/> */}
-          <form>
+          <form method='POST'>
             <h3 className='my-2'>Add Your Question</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
-              <input type="text" onChange={(e)=>{setTitle(e)}} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+              <input type="text" onChange={handleInputs} name="title" value={userThread.title} className="form-control" id="title" aria-describedby="emailHelp" />
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-              <input type="text" onChange={(e)=>{setDescription(e)}} className="form-control" id="exampleInputPassword1" />
+              <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" />
             </div>
-            <button onClick={onsubmit()} className="btn btn-primary">Submit</button>
+            <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" />
           </form>
 
           <div className='container'>

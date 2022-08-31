@@ -37,6 +37,41 @@ export default function Pthread(props) {
     // console.log(json);
     setUser(json);
   }
+
+  const [userComment, setUserComment] = useState({
+    description: ""
+  });
+
+  let name, value;
+  const handleInputs = (e) => {
+    // console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+
+    setUserComment({ ...userComment, [name]: value });
+  }
+  const PostData = async (e) => {
+    e.preventDefault();
+
+    const { description } = userComment;
+
+    const response = await fetch(`http://localhost:5000/api/comment/addcomment/` + threadid, {
+      // mode: "no-cors",
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJjNmY4NGRmZGFhYjEwZDFmMWFmZDVlIn0sImlhdCI6MTY1ODE0NjM3M30.8ntK3bNSi9hvj7bXP6fZyDbTfmB6GKzfxbKufifBnyY'
+        // 'auth-token': localStorage.getItem('token')
+      },
+      body: JSON.stringify({ description })
+    });
+    const res = await response.json(); 
+    // console.log(res)
+
+    getComments();
+    setUserComment({description: ""});
+  }
+
   useEffect(() => {
     getAllThread();
     getComments();
@@ -62,13 +97,13 @@ export default function Pthread(props) {
               </>
           })}
 
-          <form>
+          <form method='POST'>
             <h3 className='my-2'>Add Comment</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Comment</label>
-              <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+              <input type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" />
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" />
           </form>
 
           <div className='container py-2'>
