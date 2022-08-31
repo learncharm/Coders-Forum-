@@ -9,7 +9,7 @@ const CategoryState = (props)=> {
             //API Call
             const response = await fetch(`http://localhost:5000/api/category/fetchallcategory`);
             const json = await response.json();
-            console.log(json);
+            // console.log(json);
             setCategory(json);
         }
          
