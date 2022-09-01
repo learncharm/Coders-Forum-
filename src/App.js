@@ -3,6 +3,8 @@ import './App.css';
 import Home from "./components/home";
 import NavBar from './components/NavBar/NavBar';
 import Admin from "./components/Admin/Admin";
+import Signup from "./components/Signup/Signup";
+import Login from "./components/Login/Login";
 import AdminThread from "./components/Admin/Thread/Thread";
 import AdminComment from "./components/Admin/Comment/Comment";
 import Thread from "./components/Thread/Thread";
@@ -50,7 +52,8 @@ function App() {
           <Routes>
           
             <Route path='/' element={<Home />}></Route>
-
+            <Route path='/signup' element={<Signup />}></Route>
+            <Route path='/login' element={<Login />}></Route>
             <Route path='/threads/:category' element={<Thread />}></Route>
             <Route path='/thread/:threadid' element={<Pthread />}></Route>
 
