@@ -1,9 +1,17 @@
 import React from 'react';
 import './NavBar.css';
 import Logo from '../images/logo/logo.png';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
+  
+  let navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate("/");
+  }
+
   return (
     <div>
         <nav className="navbar navbar-expand-lg">
@@ -41,8 +49,9 @@ export default function NavBar() {
         <div className="d-flex nav-profile">
 
 
-          <a href="#" className="btn btn-full">SIgn Up</a>
-          <a href="#" className="btn btn-border">Log In</a>
+        {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn btn-full">SIgn Up</Link>
+          <Link to="/login" className="btn btn-border">Log In</Link></div>
+          : <button className='btn btn-border' onClick={handleLogout}>LogOut</button>}
         </div>
       </div>
     </div>

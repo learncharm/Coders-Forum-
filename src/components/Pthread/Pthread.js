@@ -97,14 +97,15 @@ export default function Pthread(props) {
               </>
           })}
 
-          <form method='POST'>
+    {localStorage.getItem('token') ? <form method='POST' onSubmit={PostData}>
             <h3 className='my-2'>Add Comment</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Comment</label>
-              <input type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" />
+              <input type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" minLength={6} required/>
             </div>
-            <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" />
-          </form>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
+          </form> : <div>Login Kro Pela Chana Muna Comment Krva Mate</div>}
 
           <div className='container py-2'>
             {comment.length === 0 && 'No Comments To Display...'}

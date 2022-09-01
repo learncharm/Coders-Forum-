@@ -85,18 +85,19 @@ export default function Thread(props) {
           })}
 
           {/* <Addthread/> */}
-          <form method='POST'>
+          {localStorage.getItem('token') ? <div><form method='POST' onSubmit={PostData}>
             <h3 className='my-2'>Add Your Question</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
-              <input type="text" onChange={handleInputs} name="title" value={userThread.title} className="form-control" id="title" aria-describedby="emailHelp" />
+              <input type="text" onChange={handleInputs} name="title" value={userThread.title} className="form-control" id="title" aria-describedby="emailHelp" minLength={5} required/>
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-              <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" />
+              <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required/>
             </div>
-            <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" />
-          </form>
+            <button type="submit" className="btn btn-primary">Submit</button>
+            {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
+          </form></div> : <div>Login Kro Pela Chana Muna Question Add Krva Mate</div>}
 
           <div className='container'>
             {thread.length === 0 && 'No Threads To Display...'}
