@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ThreadDetails from './ThreadDetails';
+import NavBar from '../NavBar/NavBar';
+
 // import Addthread from './Addthread';
 
 export default function Thread(props) {
@@ -51,8 +53,8 @@ export default function Thread(props) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJjNmY4NGRmZGFhYjEwZDFmMWFmZDVlIn0sImlhdCI6MTY1ODE0NjM3M30.8ntK3bNSi9hvj7bXP6fZyDbTfmB6GKzfxbKufifBnyY'
-        // 'auth-token': localStorage.getItem('token')
+        // 'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjJjNmY4NGRmZGFhYjEwZDFmMWFmZDVlIn0sImlhdCI6MTY1ODE0NjM3M30.8ntK3bNSi9hvj7bXP6fZyDbTfmB6GKzfxbKufifBnyY'
+        'auth-token': localStorage.getItem('token')
       },
       body: JSON.stringify({ title, description })
     });
@@ -70,6 +72,7 @@ export default function Thread(props) {
 
   return (
     <>
+      <NavBar/>
       <div className="container">
         <div className="row">
 

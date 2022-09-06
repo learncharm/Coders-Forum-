@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from "./components/home";
-import NavBar from './components/NavBar/NavBar';
+// import NavBar from './components/NavBar/NavBar';
 import Admin from "./components/Admin/Admin";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
@@ -41,7 +41,7 @@ function App() {
         <div class="alan-btn"></div>
 
         <BrowserRouter>
-        <NavBar />
+        {/* <NavBar /> */}
           <Routes>
             <Route path='/admin' element={<Admin />}></Route>
             <Route path='/admin/category' element={<Category />}></Route>
