@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import './CardDetails.css';
+import './ThreadDetails.css';
 import { Link } from 'react-router-dom';
 
 export default function ThreadDetails(props) {
@@ -21,23 +21,30 @@ export default function ThreadDetails(props) {
   }, []);
 
   return (
-    <div className="col-md-4 mt-3">
+    <div className="">
 
-      <div className="card cat-card" style={{ "width": "18rem" }}>
-        <div className="card-body m-3">
-          <Link to={`/thread/${threads._id}`} className="card-title">{threads.title}</Link>
-          <h6 className="card-subtitle mb-2 text-muted">&nbsp;</h6>
-          <p className="card-text">{threads.description}</p>
-          <p className="card-text">{threads.date}</p>
-
-          {user.map((users) => {
+     
+      <div className="card ps-4 my-4">
+                            <div className="row">
+                                <div className="col-md-8 mb-3">
+                                <Link to={`/thread/${threads._id}`} className="card-title"><h3> {threads.title} </h3></Link>
+                                <p className="card-text">{threads.description}</p>
+                                <p className="card-text">{threads.date}</p>
+                                {user.map((users) => {
             if (users._id == threads.userid)
               return <p>By {users.name}</p>
           })}
-
-          {/* <Link to={`/thread/${categories.title}`} class="card-link btn btn-primary">Visit Category</Link> */}
-        </div>
-      </div>
+                                </div>
+                                <div className="col-md-4">
+                                    <img alt="" className="img-fluid" />
+                                    <div className="news-card-link">
+                                        <i class="bi bi-facebook"></i>
+                                        <i class="bi bi-twitter"></i>
+                                        <i class="bi bi-link"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
     </div>
   )
 }

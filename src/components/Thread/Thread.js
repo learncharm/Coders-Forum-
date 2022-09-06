@@ -95,7 +95,7 @@ export default function Thread(props) {
               <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
               <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary nav-btn">Submit</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
           </form></div> : <div>Login Kro Pela Chana Muna Question Add Krva Mate</div>}
 
