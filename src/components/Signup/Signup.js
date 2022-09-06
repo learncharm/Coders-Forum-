@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import NavBar from '../NavBar/NavBar';
 
 export default function Signup() {
 
@@ -48,6 +49,7 @@ export default function Signup() {
 
     return (
         <>
+        <NavBar/>
             <div className='container'>
                 <form method='POST' onSubmit={PostData}>
                     <h3 className='my-2'>Sign Up</h3>

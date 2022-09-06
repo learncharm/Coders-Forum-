@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './NavBar.css';
 import Logo from '../images/logo/logo.png';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
-  
+  const [user, setUser] = useState([]);
+
+  const getUser = async () => {
+    //API Call
+
+    const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+      // mode: "no-cors",
+      method: 'POST',
+      headers: {
+        'auth-token': localStorage.getItem('token')
+      }
+    });
+    const json = await response.json();
+    // console.log(json);
+    setUser(json);
+  }
+
   let navigate = useNavigate();
 
   const handleLogout = () => {
@@ -12,36 +28,40 @@ export default function NavBar() {
     navigate("/");
   }
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg  navCss">
-  <div className="container-fluid">
-    <Link className="navbar-brand" to="">
-      <img src={Logo} width="75px" alt="" />
-    </Link>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div className="navbar-nav">
-        <a className="nav-link active" aria-current="page" href="#">Home</a>
-        <a className="nav-link" href="#">About</a>
-        <a className="nav-link" href="#">Contact</a>
-        <a className="nav-link" href='#'>Feedback</a>
-      </div>
-    </div>
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="">
+            <img src={Logo} width="75px" alt="" />
+          </Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <a className="nav-link" href="#">About</a>
+              <a className="nav-link" href="#">Contact</a>
+              <a className="nav-link" href='#'>Feedback</a>
+            </div>
+          </div>
 
-        <div className="d-flex nav-profile">
+          <div className="d-flex nav-profile">
 
 
-        {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn btn-full nav-btn">SIgn Up</Link>
-          <Link to="/login" className="btn btn-border nav-btn">Log In</Link></div>
-          : <button className='btn btn-border nav-btn' onClick={handleLogout}>LogOut</button>
-          }
-          <div  className='profile'></div>
+            {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn btn-full nav-btn">SIgn Up</Link>
+              <Link to="/login" className="btn btn-border nav-btn">Log In</Link></div>
+              : <button className='btn btn-border nav-btn' onClick={handleLogout}>LogOut</button>
+            }
+            <div className='profile'><p>{user.name}</p></div>
+          </div>
         </div>
-  </div>
-</nav>
+      </nav>
     </div>
   )
 }

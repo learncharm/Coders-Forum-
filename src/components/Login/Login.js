@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import NavBar from '../NavBar/NavBar';
 
 export default function Login() {
 
@@ -47,12 +48,15 @@ export default function Login() {
             navigate("/");
           }else {
             // props.showAlert("Invalid Details","danger");
-            alert("Error Occurred");
+            // if(res.errors[0].msg!='')
+            //     alert(res.errors[0].msg);
+            alert("Error Occured");
           }
     }
 
     return (
         <>
+        <NavBar/>
             <div className='container'>
                 <form method='POST' onSubmit={PostData}>
                     <h3 className='my-2'>Login</h3>
