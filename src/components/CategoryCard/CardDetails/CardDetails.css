@@ -1,15 +1,15 @@
 .cat-card{
-    background: #D8FFF3;
+    background: #cbc4ff;
     border: none;
     outline: none;
     border-radius: 20px;
     transition: all 0.2s ease-in-out;
 }
 .cat-card:hover{
-    box-shadow: 5px 5px 5px 3px #04946457;
+    box-shadow: 5px 5px 5px 3px #a397ff;
 }
 .cat-card .card-body .card-title{
-    color: #049464;
+    color: #5740FC;
     font-weight: bold;
     font-size: 20px;
 }
@@ -19,7 +19,7 @@
 }
 .cat-card .card-body .card-link{
     border-radius: 50px;
-    background: #049464;
+    background: #5740FC;
     border: none;
     outline: none;
     text-decoration: none;
@@ -27,6 +27,6 @@
 }
 .cat-card .card-body .card-link:hover{
     background: transparent;
-    border: 2px solid #049464;
-    color: #049464;
+    border: 2px solid #5740FC;
+    color: #5740FC;
 }

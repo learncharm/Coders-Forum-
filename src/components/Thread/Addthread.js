@@ -35,7 +35,7 @@ export default function Addthread() {
           <label htmlFor="noteTag" className="form-label">Tag</label>
           <input type="text" className="form-control" onChange={onChange} id="tag" name='tag' value={note.tag} required />
         </div> */}
-        <button type="submit" className="btn btn-primary">Add Question</button>
+        <button type="submit" className="btn btn-primary nav-btn">Add Question</button>
       </form>
     </div>
   )

@@ -30,8 +30,7 @@ export default function Home() {
   return (
     <div>
       <div className="container my-3">
-        <h3>Welcome {', ' + user.name}</h3>
-        <hr />
+        
         <section className="categories">
           <h3>Categories</h3>
           <hr />

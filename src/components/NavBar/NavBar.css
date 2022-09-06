@@ -1,74 +1,19 @@
-/* navbar-section */
-
-.navbar{
-    background: #d8fff3;
-    padding: 20px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 5px 5px 5px 3px #04946457;
-}
-.navbar .navbar-brand img{
-    width: 100px;
-}
-.navbar-nav .nav-item .nav-link{
-    color: var(--gossamer);
-    font-size: 20px;
-    margin-left: 20px;
-    text-decoration: none;
-}
-
-.dropdown-menu{
-    background: #d8fff3;
-}
-.dropdown-item.active{
-    background: var(--caribbean-green);
-}
-.dropdown-item{
-    transition: .2s ease-in-out;
-}
-
-.dropdown-item:hover{
-    background: #046d4e;
-    color: #fff;
-}
-
-.nav-profile{
-    position: relative;
-    top: 10px;
-    margin-right: 20px;
-}
-.nav-profile p{
-    font-size: 20px;
-    color: var(--gossamer);
-}
-
-.nav-profile-img{
-    border-radius: 50%;
-}
-
-.nav-profile a{
-    margin-left: 20px;
-    position: relative;
-    bottom: 10px;
-    text-decoration: none;
-}
-.nav-profile .btn-full{
-    background: var(--gossamer);
-    color: #fff;
-    border-radius: 50px;
-    transition: .2s ease-in-out;
-}
-.nav-profile .btn-border{
-    border: 1px solid #049464;
-    border-radius: 50px;
-    transition: .2s ease-in-out;
-}
-.nav-profile .btn-full:hover{
+.navCss{
+    border-bottom: 2px solid rgb(207, 207, 207);
     background: transparent;
-    border: 1px solid #049464;
-    color: var(--gossamer);
 }
-.nav-profile .btn-border:hover{
-    border: none;
-    background: var(--gossamer);
+
+.nav-btn{
+    border-radius: 50px;
+    background: #5740FC;
+    font-size: 14px;
+    margin-left: 10px;
     color: #fff;
+}
+.profile{
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    background: #5740FC;
+    border-radius: 50%;
 }

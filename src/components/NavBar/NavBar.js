@@ -14,48 +14,34 @@ export default function NavBar() {
 
   return (
     <div>
-        <nav className="navbar navbar-expand-lg">
-    <div className="container-fluid">
-      <Link className="navbar-brand" to="/">
-        <img src={Logo} alt="" className="d-inline-block align-text-top"/>
-      </Link>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Platforms
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a className="dropdown-item active" href="#">Forum</a></li>
-              <li><a className="dropdown-item" href="#">Quiz</a></li>
-              <li><a className="dropdown-item" href="#">Project</a></li>
-              <li><a className="dropdown-item" href="#">Group Study</a></li>
-            </ul>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">About</a>
-          </li>
+      <nav className="navbar navbar-expand-lg  navCss">
+  <div className="container-fluid">
+    <Link className="navbar-brand" to="">
+      <img src={Logo} width="75px" alt="" />
+    </Link>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div className="navbar-nav">
+        <a className="nav-link active" aria-current="page" href="#">Home</a>
+        <a className="nav-link" href="#">About</a>
+        <a className="nav-link" href="#">Contact</a>
+        <a className="nav-link" href='#'>Feedback</a>
+      </div>
+    </div>
 
-          <li className="nav-item">
-            <a className="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
         <div className="d-flex nav-profile">
 
 
-        {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn btn-full">SIgn Up</Link>
-          <Link to="/login" className="btn btn-border">Log In</Link></div>
-          : <button className='btn btn-border' onClick={handleLogout}>LogOut</button>}
+        {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn btn-full nav-btn">SIgn Up</Link>
+          <Link to="/login" className="btn btn-border nav-btn">Log In</Link></div>
+          : <button className='btn btn-border nav-btn' onClick={handleLogout}>LogOut</button>
+          }
+          <div  className='profile'></div>
         </div>
-      </div>
-    </div>
-  </nav>
+  </div>
+</nav>
     </div>
   )
 }
