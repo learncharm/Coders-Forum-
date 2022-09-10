@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function CardDetails(props) {
   const { categories } = props;
   return (
-    <div className="col-md-4 mt-3">
+    <div className="col-md-4 mb-3">
 
       <div class="card cat-card" style={{ "width": "18rem" }}>
         <div class="card-body m-3">
