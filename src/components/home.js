@@ -16,14 +16,14 @@ export default function Home() {
     <div>
       <div className="container my-3">
         
-        <section className="categories">
+        <section className="categories text-center">
           <h3>Categories</h3>
           <hr />
-          <CategoryCard />
         </section>
+          <CategoryCard />
         <hr />
         <section className='feedback mt-3'>
-        <h2 className='text-center'>Feedback</h2>
+        <h2 className='text-center' id="feedback">Feedback</h2>
             <p className='my-2 text-center'>Give Your Feedback</p>
         <div className='add-thread'><form method='POST'  className='add-thread-form' >
             <div className="mb-3">

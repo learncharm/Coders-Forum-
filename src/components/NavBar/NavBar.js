@@ -35,9 +35,9 @@ export default function NavBar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg  navCss">
+      <nav className="navbar navbar-expand-lg navCss">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="">
+          <Link className="navbar-brand" to="/">
             <img src={Logo} width="75px" alt="" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,18 +48,18 @@ export default function NavBar() {
               <Link className="nav-link" aria-current="page" to="/">Home</Link>
               <a className="nav-link" href="#">About</a>
               <a className="nav-link" href="#">Contact</a>
-              <a className="nav-link" href='#'>Feedback</a>
+              <a className="nav-link" href='#feedback'>Feedback</a>
             </div>
           </div>
 
           <div className="d-flex nav-profile">
 
 
-            {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn nav-btn">SIgn Up</Link>
+            {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn nav-btn">Sign Up</Link>
               <Link to="/login" className="btn nav-btn">Log In</Link></div>
-              : <button className='btn nav-btn' onClick={handleLogout}>LogOut</button>
+              : <div><button className='btn nav-btn' onClick={handleLogout}>LogOut</button></div>
             }
-            <div className='profile'><img src={UserImg} alt="" /></div>
+            <Link to="/profile"><div className='profile'><img src={UserImg} alt="" /></div></Link>
           </div>
         </div>
       </nav>
