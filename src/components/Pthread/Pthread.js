@@ -99,13 +99,13 @@ export default function Pthread(props) {
               </>
           })}
 
-    {localStorage.getItem('token') ? <form method='POST' onSubmit={PostData}>
+    {localStorage.getItem('token') ? <form method='POST' className='add-thread-form' onSubmit={PostData}>
             <h3 className='my-2'>Add Comment</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Comment</label>
               <input type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" minLength={6} required/>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary nav-btn">Submit</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
           </form> : <div>Login Kro Pela Chana Muna Comment Krva Mate</div>}
 
@@ -115,19 +115,22 @@ export default function Pthread(props) {
 
           {comment.map((comments) => {
             return <>
-              <div className="col-md-4 mt-3">
+              
+              <div className="card ps-4 my-4">
+        <div className="row">
+          <div className="col-md-8 mb-3">
+      
+            <p className="card-text">{comments.description}</p>
+            <p className="card-text">{comments.date}</p>
+            {user.map((users) => {
+              if (users._id == comments.userid)
+                return <p>By {users.name}</p>
+            })}
 
-                <div className="card cat-card" style={{ "width": "18rem" }}>
-                  <div className="card-body m-3">
-                    <h6 className='mb-1'>{comments.description}</h6>
-                    <p className=''>{comments.date}</p>
-                    {user.map((users) => {
-                      if (users._id == comments.userid)
-                        return <p>By {users.name}</p>
-                    })}
-                  </div>
-                </div>
-              </div>
+
+          </div>
+        </div>
+      </div>
             </>
           })}
         </div>

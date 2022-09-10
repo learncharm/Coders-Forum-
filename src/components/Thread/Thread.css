@@ -1,0 +1,31 @@
+.add-thread-form input{
+    border-radius: 50px;
+
+}
+.thread-title{
+    color: #5740FC;
+}
+.add-thread{
+    background: #c7c0ff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 4px 3px 10px 3px #a397ff;
+    margin-top: 30px;
+
+}
+
+.thread-btn{
+    border-radius: 50px;
+    background: #5740FC;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.thread-btn:hover{
+    border: 1px solid #5740FC;
+    text-decoration: none;
+    background: transparent;
+    font-size: 14px;
+    color: #5740FC;
+}
