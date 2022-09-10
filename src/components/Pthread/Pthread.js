@@ -86,7 +86,7 @@ export default function Pthread(props) {
         <div className="row">
 
           {thread.map((tcs) => {
-            if (tcs._id == threadid)
+            if (tcs._id === threadid)
               return <>
                 <h2 className='my-2'>{tcs.title}</h2>
                 <br />

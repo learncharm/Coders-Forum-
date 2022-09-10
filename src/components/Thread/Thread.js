@@ -80,7 +80,7 @@ export default function Thread(props) {
           {/* <h2 className='my-2'>Thread : {category}</h2> */}
 
           {threadCategory.map((tcs) => {
-            if (tcs.title == category)
+            if (tcs.title === category)
               return <>
                 <h2 className='my-2 thread-title'>{tcs.title}</h2>
                 <br />
@@ -103,10 +103,11 @@ export default function Thread(props) {
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
           </form></div> : <div>Login To Add Question...</div>}
           <hr />
+          
+          <h3 className='mt-4' >Questions</h3>
           <div className='container'>
             {thread.length === 0 && 'No Threads To Display...'}
           </div>
-          <h3 className='mx-2 mt-4' >Questions</h3>
           {thread.map((threads) => {
             return <ThreadDetails key={threads._id} threads={threads} />
           })}
