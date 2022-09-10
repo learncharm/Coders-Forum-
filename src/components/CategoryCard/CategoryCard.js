@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import categoryContext from '../Admin/Context/Category/categoryContext';
 import 'rsuite/dist/rsuite.min.css'
 import CardDetails from './CardDetails/CardDetails';
+import { motion } from "framer-motion"
 
 export default function Category(props) {
     const context = useContext(categoryContext);
@@ -14,7 +15,7 @@ export default function Category(props) {
    
     return (
 <>
-<div className="container">
+<div >
     <div className="row">
         
         {category.map((categories)=> {

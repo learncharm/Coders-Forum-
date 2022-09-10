@@ -1,19 +1,38 @@
 .navCss{
     border-bottom: 2px solid rgb(207, 207, 207);
-    background: transparent;
+    background: #5740FC;
+
+}
+.navCss .nav-link{
+    color: #fff;
+    text-decoration: none;
 }
 
 .nav-btn{
     border-radius: 50px;
-    background: #5740FC;
+    background: #fff;
+    font-size: 14px;
+    margin-left: 10px;
+    color: #5740FC;
+    text-decoration: none;
+}
+.nav-btn:hover{
+    border-radius: 50px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    background: transparent;
     font-size: 14px;
     margin-left: 10px;
     color: #fff;
 }
+
 .profile{
     width: 35px;
     height: 35px;
     margin-left: 10px;
-    background: #5740FC;
+    /* background: ; */
     border-radius: 50%;
+}
+.profile img{
+    width: 35px;
 }

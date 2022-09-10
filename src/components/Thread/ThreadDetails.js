@@ -23,28 +23,22 @@ export default function ThreadDetails(props) {
   return (
     <div className="">
 
-     
+
       <div className="card ps-4 my-4">
-                            <div className="row">
-                                <div className="col-md-8 mb-3">
-                                <Link to={`/thread/${threads._id}`} className="card-title"><h3> {threads.title} </h3></Link>
-                                <p className="card-text">{threads.description}</p>
-                                <p className="card-text">{threads.date}</p>
-                                {user.map((users) => {
-            if (users._id == threads.userid)
-              return <p>By {users.name}</p>
-          })}
-                                </div>
-                                <div className="col-md-4">
-                                    <img alt="" className="img-fluid" />
-                                    <div className="news-card-link">
-                                        <i class="bi bi-facebook"></i>
-                                        <i class="bi bi-twitter"></i>
-                                        <i class="bi bi-link"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div className="row">
+          <div className="col-md-8 mb-3">
+            <Link to={`/thread/${threads._id}`} className="card-title"><h4> {threads.title} </h4></Link>
+            <p className="card-text">{threads.description}</p>
+            <p className="card-text">{threads.date}</p>
+            {user.map((users) => {
+              if (users._id == threads.userid)
+                return <p>By {users.name}</p>
+            })}
+
+
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

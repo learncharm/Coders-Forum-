@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './NavBar.css';
+import UserImg from './Images/user.png';
 import Logo from '../images/logo/logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -44,7 +45,7 @@ export default function NavBar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link" aria-current="page" to="/">Home</Link>
               <a className="nav-link" href="#">About</a>
               <a className="nav-link" href="#">Contact</a>
               <a className="nav-link" href='#'>Feedback</a>
@@ -54,11 +55,11 @@ export default function NavBar() {
           <div className="d-flex nav-profile">
 
 
-            {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn btn-full nav-btn">SIgn Up</Link>
-              <Link to="/login" className="btn btn-border nav-btn">Log In</Link></div>
-              : <button className='btn btn-border nav-btn' onClick={handleLogout}>LogOut</button>
+            {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn nav-btn">SIgn Up</Link>
+              <Link to="/login" className="btn nav-btn">Log In</Link></div>
+              : <button className='btn nav-btn' onClick={handleLogout}>LogOut</button>
             }
-            <div className='profile'><p>{user.name}</p></div>
+            <div className='profile'><img src={UserImg} alt="" /></div>
           </div>
         </div>
       </nav>

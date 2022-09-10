@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './Thread.css'
 import ThreadDetails from './ThreadDetails';
 import NavBar from '../NavBar/NavBar';
 
@@ -81,31 +82,31 @@ export default function Thread(props) {
           {threadCategory.map((tcs) => {
             if (tcs.title == category)
               return <>
-                <h2 className='my-2'>{tcs.title}</h2>
+                <h2 className='my-2 thread-title'>{tcs.title}</h2>
                 <br />
                 <p className='my-2'>{tcs.description}</p>
               </>
           })}
 
           {/* <Addthread/> */}
-          {localStorage.getItem('token') ? <div><form method='POST' onSubmit={PostData}>
+          {localStorage.getItem('token') ? <div className='add-thread'><form method='POST'  className='add-thread-form' onSubmit={PostData}>
             <h3 className='my-2'>Add Your Question</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
-              <input type="text" onChange={handleInputs} name="title" value={userThread.title} className="form-control" id="title" aria-describedby="emailHelp" minLength={5} required/>
+              <input type="text" onChange={handleInputs} name="title" value={userThread.title} className="form-control " id="title" aria-describedby="emailHelp" minLength={5} required/>
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
               <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required/>
             </div>
-            <button type="submit" className="btn btn-primary nav-btn">Submit</button>
+            <button type="submit" className="btn btn-primary thread-btn">Submit</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
-          </form></div> : <div>Login Kro Pela Chana Muna Question Add Krva Mate</div>}
-
+          </form></div> : <div>Login To Add Question...</div>}
+          <hr />
           <div className='container'>
             {thread.length === 0 && 'No Threads To Display...'}
           </div>
-
+          <h3 className='mx-2 mt-4' >Questions</h3>
           {thread.map((threads) => {
             return <ThreadDetails key={threads._id} threads={threads} />
           })}
