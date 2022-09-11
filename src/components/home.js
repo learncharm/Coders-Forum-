@@ -17,7 +17,7 @@ export default function Home() {
       <div className="container my-3">
         
         <section className="categories text-center">
-          <h3>Categories</h3>
+        <h2 className='text-center' id="feedback">Categories</h2>
           <hr />
         </section>
           <CategoryCard />
@@ -42,11 +42,11 @@ export default function Home() {
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
           </form></div>
       </section>
-      <Footer/>
       </div>
 
 
     </div>
+      <Footer/>
     </>
   )
 }

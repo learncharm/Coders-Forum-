@@ -1,55 +1,58 @@
-import React, {useContext, useState} from 'react';
-import categoryContext from '../Context/Category/categoryContext';
-import { Table, Drawer, Button, Form } from 'rsuite';
-// import { useNavigate } from 'react-router-dom';
-import 'rsuite/dist/rsuite.min.css'
+import React, {useEffect, useState} from 'react';
 
 
 export default function AddCategory() {
-    // let navigate  = useNavigate();
     
-    const [open, setOpen] = useState(true);
-    
-    const [category, setCategory] = useState({title: "", description: ""})
-    const context = useContext(categoryContext);
-    const {addCategory} = context;
-    const handleClick = (e)=> {
-        e.preventDefault()
-        addCategory(category.title, category.description);
-        //  setOpen(false)
-        // navigate("/admin/category")
-        setCategory({title: "", description: ""})
-    }
-    const onChange = (e)=> {
-        setCategory ({...category, [e.target.name]: e.target.value})
-    }
-    
-    
+  const [category, setCategory] = useState({
+    title: "", description: ""
+  });
+
+  let name, value;
+  const handleInputs = (e) => {
+    // console.log(e);
+    name = e.target.name;
+    value = e.target.value;
+
+    setCategory({ ...category, [name]: value });
+  }
+  const PostData = async (e) => {
+    e.preventDefault();
+
+    const { title , description } = category;
+
+    const response = await fetch(`http://localhost:5000/api/category/addcategory/` , {
+      // mode: "no-cors",
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ title, description })
+    });
+    const res = await response.json(); 
+    // console.log(res)
+
+    setCategory({title: "", description: ""});
+    alert("Category Added Successfully");
+  }
+
   return (
-    <div>
-
-<Form method='POST'>
-    <Form.Group controlId="title">
-      <Form.ControlLabel>Title</Form.ControlLabel>
-     
-                                <input type="text" name="title" id="title" value={category.title} onChange={onChange}/>
-      <Form.HelpText>Title is required</Form.HelpText>
-    </Form.Group>
-    <Form.Group controlId="description">
-      <Form.ControlLabel>Description</Form.ControlLabel>
-    <input type="text" name="description" id="description"  value={category.description} onChange={onChange}/>
-      <Form.HelpText>Description is required</Form.HelpText>
-    </Form.Group>
-                                <Button appearance="primary" onClick={handleClick}>Submit</Button>
-
-    </Form>
-      {/* <form action="" method='POST'>
-                    
- 
-
-
-
-    </form> */}
-    </div>
+    <>
+    <div className='container'>
+    <div className='add-thread'>
+    <form method='POST'  className='add-thread-form' onSubmit={PostData}>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">Title</label>
+              <input type="text" onChange={handleInputs} name="title" value={category.title} className="form-control " id="title" aria-describedby="emailHelp" minLength={3} required/>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
+              <input type="text" onChange={handleInputs} name="description" value={category.description} className="form-control" id="description" minLength={5} required/>
+            </div>
+            <button type="submit" className="btn btn-primary thread-btn">Submit</button>
+            {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
+          </form>
+          </div>
+          </div>
+    </>
   )
 }

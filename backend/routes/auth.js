@@ -120,4 +120,25 @@ router.get('/fetchalluser', async (req, res) => {
     res.json(users);
   })
   
+// Route 5 : Delete an existing User using : DELETE "api/auth/deleteuser". No Login Required
+
+router.delete('/deleteuser/:id', async (req, res) => {
+
+  try {
+
+      // Find the comment to be deleted and delete it
+      let user = await User.findById(req.params.id);
+      if (!user) {
+          return res.status(404).send("Not Found");
+      }
+
+      user = await User.findByIdAndDelete(req.params.id);
+
+      res.json({ Success: "User has been Deleted" });
+  } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server Error");
+  }
+})
+
 module.exports = router

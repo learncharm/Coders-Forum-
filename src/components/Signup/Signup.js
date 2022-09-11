@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer'
 
 export default function Signup() {
 
@@ -73,6 +74,7 @@ export default function Signup() {
                     {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
                 </form>
             </div>
+            <Footer/>
         </>
     )
 }

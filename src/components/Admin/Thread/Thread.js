@@ -1,53 +1,83 @@
 import React, { useEffect, useState } from 'react';
-import 'rsuite/dist/rsuite.min.css'
-import ThreadDetails from './ThreadDetails'
-import SideNav from '../SideNav/SideNav';
+import NavBar from '../NavBar/NavBar';
 
-export default function Thread(props) {
-   const [thread, setThread] = useState([]); 
+export default function Thread() {
+  let count = 0;
+  const [thread, setThread] = useState([]);
 
-    const getAllThread = async () => {
-        //API Call
-        const response = await fetch(`http://localhost:5000/api/thread/allthreads`);
-        const json = await response.json();
-        console.log(json);
-        setThread(json);
-    }
-    useEffect(() => {
-        getAllThread();
-       }, []);
-      //  const options = {method: 'GET'};
+  const getAllThread = async () => {
+    //API Call
+    const response = await fetch(`http://localhost:5000/api/thread/allthreads`);
+    const json = await response.json();
+    console.log(json);
+    setThread(json);
+  }
 
-// fetch('http://localhost:5000/api/thread/allthreads', options)
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
+  const [user, setUser] = useState([]);
+  const getUser = async () => {
+    //API Call
+    const url = `http://localhost:5000/api/auth/fetchalluser`;
+    // console.log(url)
+    const response = await fetch(url);
+    const json = await response.json();
+    // console.log(json);
+    setUser(json);
+  }
 
-  
-  
+  const deleteThread = async (id) => {
+    // API Call
+    const response = await fetch(`http://localhost:5000/api/thread/deletethreadbyadmin/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const json = await response.json();
+    // console.log(json);
 
+    const newThreads = thread.filter((dt) => { return dt._id !== id })
+    setThread(newThreads);
+    alert("Question Deleted")
+  }
 
+  useEffect(() => {
+    getAllThread();
+    getUser();
+  }, []);
 
-   
-    return (
-        <>
-        <SideNav/>
-<table className="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-      <th scope="col">Category</th>
-    </tr>
-  </thead>
-  <tbody>
-                {thread.map((threads)=> {
-            return <ThreadDetails threads = {threads} />
-        })}
+  return (
+    <>
+      <NavBar />
+      <div className="container">
+        <h2 className='my-3 text-center'>All Questions</h2>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope='col'>By</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {thread.map((threads) => {
+            return <tr>
+              <th scope="row">{++count}</th>
+              <td>{threads.title}</td>
+              <td>{threads.description}</td>
+              {user.map((users) => {
+              if (users._id === threads.userid)
+                return <td>{users.name}</td>
+            })}
+            <td>{threads.category}</td>
+              <td><button type="button" class="btn btn-sm btn-outline-danger" onClick={() => {deleteThread(threads._id);}}>Delete</button></td>
+            </tr>
+          })}
         </tbody>
-        </table>
-        
-        </>
-    )
+      </table>
+      </div>
+    </>
+  )
 }

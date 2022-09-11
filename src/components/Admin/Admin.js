@@ -1,15 +1,14 @@
 import React from 'react';
-import 'rsuite/dist/rsuite.min.css'
-import SideNav from './SideNav/SideNav';
-
+import NavBar from './NavBar/NavBar';
+import AddCategory from './Category/AddCategory';
 
 export default function Admin() {
   return (
     <>
-    {/* <SideNav/> */}
-    <div className="content">
-                <h2 className="category_head">Dashboard</h2>
-                <hr className="category_hr" />
+      <NavBar/>
+      <div className='container'>
+        <h2 className='text-center my-3'>Add Category</h2>
+        <AddCategory/>
       </div>
     </>
 
