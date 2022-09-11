@@ -71,6 +71,7 @@ export default function Pthread(props) {
 
     getComments();
     setUserComment({description: ""});
+    alert("Comment Added Successfully")
   }
 
   useEffect(() => {

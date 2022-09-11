@@ -64,6 +64,7 @@ export default function Thread(props) {
 
     getAllThread();
     setUserThread({title: "", description: ""});
+    alert("Question Added Successfully")
   }
 
   useEffect(() => {

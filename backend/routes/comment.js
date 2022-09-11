@@ -109,4 +109,25 @@ router.delete('/deletecomment/:id', fetchuser, async (req, res) => {
     }
 })
 
+// Route 5 : Delete an existing Comment using : DELETE "api/comment/deletecommentbyadmin". Login Required
+
+router.delete('/deletecommentbyadmin/:id', async (req, res) => {
+
+    try {
+
+        // Find the comment to be deleted and delete it
+        let comment = await Comment.findById(req.params.id);
+        if (!comment) {
+            return res.status(404).send("Not Found");
+        }
+
+        comment = await Comment.findByIdAndDelete(req.params.id);
+
+        res.json({ Success: "Comment has been Deleted" });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
 module.exports = router;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer'
 
 export default function Login() {
 
@@ -81,6 +82,7 @@ export default function Login() {
                     {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
                 </form>
             </div>
+            <Footer/>
         </>
     )
 }

@@ -111,4 +111,25 @@ router.delete('/deletethread/:id', fetchuser, async (req, res) => {
     }
 })
 
+// Route 5 : Delete an existing Thread using : DELETE "api/thread/deletethreadbyadmin".
+
+router.delete('/deletethreadbyadmin/:id', async (req, res) => {
+
+    try {
+
+        // Find the note to be deleted and delete it
+        let thread = await Thread.findById(req.params.id);
+        if (!thread) {
+            return res.status(404).send("Not Found");
+        }
+
+        thread = await Thread.findByIdAndDelete(req.params.id);
+
+        res.json({ Success: "Thread has been Deleted" });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
 module.exports = router;

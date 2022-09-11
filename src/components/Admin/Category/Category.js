@@ -1,101 +1,67 @@
-import React, { useEffect, useContext } from 'react';
-import { Table, Drawer, Button, Form } from 'rsuite';
-import categoryContext from '../Context/Category/categoryContext';
-import 'rsuite/dist/rsuite.min.css'
-import AddCategory from './AddCategory';
-import SideNav from '../SideNav/SideNav';
-import TrashIcon from '@rsuite/icons/Trash';
-import './Category.css';
+import React, { useEffect, useState } from 'react';
+import NavBar from '../NavBar/NavBar';
 
-export default function Category(props) {
-    const context = useContext(categoryContext);
-    const {category, getCategory, deleteCategory} = context;
-    const {categories} = props;
+export default function Category() {
 
-  
+    let count = 0;
+
+    const [category, setCategory] = useState([]);
+    const getCategory = async () => {
+        //API Call
+        const url = `http://localhost:5000/api/category/fetchallcategory`;
+        // console.log(url)
+        const response = await fetch(url);
+        const json = await response.json();
+        // console.log(json);
+        setCategory(json);
+    }
+
+    const deleteCategory = async (id) => {
+        // API Call
+        const response = await fetch(`http://localhost:5000/api/category/deletecategory/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        // const json = await response.json();
+        // console.log(json);
+    
+        const newCat = category.filter((dt) => { return dt._id !== id })
+        setCategory(newCat);
+        alert("Category Deleted")
+      }
+
     useEffect(() => {
         getCategory();
     }, [])
 
-  
-    const [backdrop, setBackdrop] = React.useState('static');
-    const [open, setOpen] = React.useState(false);
-
-
-
-   
     return (
         <>
-        <SideNav/>
-            <div className="content">
-                <h2 className="category_head">Categories</h2>
-                <hr className="category_hr" />
-                <Button onClick={() => setOpen(true)}>Add Category</Button>
+            <NavBar />
+            <div className="container">
 
-
-                <Drawer backdrop={backdrop} open={open} onClose={() => setOpen(false)}>
-                    <Drawer.Header>
-                        <Drawer.Title>Add New Category</Drawer.Title>
-                        <Drawer.Actions>
-                            <Button onClick={() => setOpen(false)}>Cancel</Button>
-
-                        </Drawer.Actions>
-                    </Drawer.Header>
-                    <Drawer.Body>
-                     
-                        <AddCategory/>
-                    </Drawer.Body>
-                </Drawer>
-
-                <Table
-       
-          height={500}
-      
-          
-          data={category}
-                    onRowClick={data => {
-                        // console.log(data);
-                    }}>
-
-                
-
-                    <Table.Column width={70} align="center" resizable>
-                        <Table.HeaderCell>No.</Table.HeaderCell>
-                        <Table.Cell>🌟</Table.Cell>
-                    </Table.Column>
-                    <Table.Column width={70} align="center" resizable>
-                        <Table.HeaderCell>Title</Table.HeaderCell>
-                        <Table.Cell dataKey="title" />
-                    </Table.Column>
-
-                    <Table.Column width={300} align="center" resizable>
-                        <Table.HeaderCell>Description</Table.HeaderCell>
-                        <Table.Cell dataKey="description" />
-                    </Table.Column>
-
-                    <Table.Column width={120} fixed="right">
-        <Table.HeaderCell>Action</Table.HeaderCell>
-
-        <Table.Cell>
-          
-            
-        {data => {
-            function handleAction() {
-              deleteCategory(data._id)
-            }
-            return (
-              <span>
-                <a onClick={handleAction}> <TrashIcon/> </a>
-              </span>
-            );
-          }}
-        
-        
-        </Table.Cell>
-      </Table.Column>
-                </Table>
-
-
+                <h2 className='my-3 text-center'>All Categories</h2>
+                <table className="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope='col'>Description</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {category.map((cat) => {
+                            return <tr>
+                                <th scope="row">{++count}</th>
+                                <td>{cat.title}</td>
+                                <td>{cat.description}</td>
+                                <td><button type="button" class="btn btn-sm btn-outline-danger" onClick={() => { deleteCategory(cat._id); }}>Delete</button></td>
+                            </tr>
+                        })}
+                    </tbody>
+                </table>
             </div>
         </>
     )

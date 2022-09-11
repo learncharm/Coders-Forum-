@@ -12,6 +12,7 @@ import Thread from "./components/Thread/Thread";
 import Pthread from "./components/Pthread/Pthread";
 import Category from "./components/Admin/Category/Category";
 import CategoryState from './components/Admin/Context/Category/CategoryState';
+import User from './components/Admin/User/User';
 import {
   BrowserRouter,
   Route,
@@ -48,6 +49,7 @@ function App() {
             <Route path='/admin/category' element={<Category />}></Route>
             <Route path='/admin/thread' element={<AdminThread />}></Route>
             <Route path='/admin/comment' element={<AdminComment />}></Route>
+            <Route path='/admin/user' element={<User />}></Route>
           </Routes>
           
           <Routes>

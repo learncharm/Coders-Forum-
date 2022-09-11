@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
+import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom';
 
 export default function Profile() {
@@ -52,12 +53,13 @@ export default function Profile() {
 
     const newThreads = thread.filter((dt) => { return dt._id !== id })
     setThread(newThreads);
+    alert("Question Deleted")
   }
 
   const [comment, setComment] = useState([]);
   const getAllComment = async () => {
     //API Call
-    const url = `http://localhost:5000/api/comment/allcomments`;
+    const url = `http://localhost:5000/api/comment/fetchusercomments`;
     // console.log(url)
     const response = await fetch(url, {
       method: 'GET',
@@ -85,6 +87,7 @@ export default function Profile() {
 
     const newComments = comment.filter((cmnt) => { return cmnt._id !== id })
     setComment(newComments);
+    alert("Comment Deleted");
   }
 
   useEffect(() => {
@@ -144,8 +147,8 @@ export default function Profile() {
           })}
         </div>
 
-        
       </div>      
+        <Footer/>
     </>
   )
 }
