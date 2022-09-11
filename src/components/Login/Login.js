@@ -58,8 +58,8 @@ export default function Login() {
     return (
         <>
         <NavBar/>
-            <div className='container'>
-                <form method='POST' onSubmit={PostData}>
+            <div className='container add-thread'>
+                <form method='POST'  onSubmit={PostData}>
                     <h3 className='my-2'>Login</h3>
                     {/* <div className="mb-3">
                         <label htmlFor="exampleInputEmail1" className="form-label">User Name</label>
@@ -78,7 +78,7 @@ export default function Login() {
                         <label htmlFor="exampleInputPassword1" className="form-label">Confirm Password</label>
                         <input type="password" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" />
                     </div> */}
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary thread-btn">Login</button>
                     {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
                 </form>
             </div>

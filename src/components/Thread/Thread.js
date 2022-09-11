@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import './Thread.css'
 import ThreadDetails from './ThreadDetails';
 import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
+
 
 // import Addthread from './Addthread';
 
@@ -98,7 +100,7 @@ export default function Thread(props) {
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-              <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required/>
+              <textarea type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required rows="7"></textarea>
             </div>
             <button type="submit" className="btn btn-primary thread-btn">Submit</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
@@ -113,6 +115,7 @@ export default function Thread(props) {
             return <ThreadDetails key={threads._id} threads={threads} />
           })}
         </div>
+        <Footer/>
       </div>
 
     </>
