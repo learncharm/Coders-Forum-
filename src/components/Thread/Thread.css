@@ -2,6 +2,9 @@
     border-radius: 50px;
 
 }
+.add-thread-form textarea{
+    border-radius: 20px;
+}
 .thread-title{
     color: #5740FC;
 }

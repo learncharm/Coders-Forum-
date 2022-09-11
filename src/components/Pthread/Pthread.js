@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
+import Footer from '../Footer/Footer';
+
 
 export default function Pthread(props) {
 
@@ -88,7 +90,7 @@ export default function Pthread(props) {
           {thread.map((tcs) => {
             if (tcs._id === threadid)
               return <>
-                <h2 className='my-2'>{tcs.title}</h2>
+                <h2 className='my-2 thread-title'>{tcs.title}</h2>
                 <br />
                 <p className='my-2'>{tcs.description}</p>
                 <p className='my-2'>{tcs.date}</p>
@@ -99,15 +101,15 @@ export default function Pthread(props) {
               </>
           })}
 
-    {localStorage.getItem('token') ? <form method='POST' className='add-thread-form' onSubmit={PostData}>
+    {localStorage.getItem('token') ? <div className='add-thread'> <form method='POST' className='add-thread-form' onSubmit={PostData}>
             <h3 className='my-2'>Add Comment</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Comment</label>
-              <input type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" minLength={6} required/>
+              <textarea type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" minLength={6} required rows={7}></textarea>
             </div>
-            <button type="submit" className="btn btn-primary nav-btn">Submit</button>
+            <button type="submit" className="btn btn-primary nav-btn  thread-btn">Add Comment</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
-          </form> : <div>Login Kro Pela Chana Muna Comment Krva Mate</div>}
+          </form> </div> : <div>Login Kro Pela Chana Muna Comment Krva Mate</div>}
 
           <div className='container py-2'>
             {comment.length === 0 && 'No Comments To Display...'}
@@ -134,6 +136,7 @@ export default function Pthread(props) {
             </>
           })}
         </div>
+        <Footer/>
       </div>
 
     </>
