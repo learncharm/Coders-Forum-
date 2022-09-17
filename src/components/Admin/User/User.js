@@ -1,9 +1,17 @@
 import React,{useState,useEffect} from 'react'
 import NavBar from '../NavBar/NavBar'
+import { useNavigate } from 'react-router-dom'
 
 export default function User() {
+
+    let navigate = useNavigate();
     let count = 0;
 
+    const checkAdmin = () => {
+      if(localStorage.getItem('admin')!=="true")
+        navigate("/admin/login");
+    }
+    
     const [user, setUser] = useState([]);
   const getUser = async () => {
     //API Call
@@ -32,6 +40,7 @@ export default function User() {
   }
 
   useEffect(() => {
+    checkAdmin();
     getUser();
   }, []);
 

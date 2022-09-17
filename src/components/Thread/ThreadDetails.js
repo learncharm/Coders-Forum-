@@ -31,7 +31,7 @@ export default function ThreadDetails(props) {
             <p className="card-text">{threads.description}</p>
             <p className="card-text">{threads.date}</p>
             {user.map((users) => {
-              if (users._id == threads.userid)
+              if (users._id === threads.userid)
                 return <p>By {users.name}</p>
             })}
 

@@ -1,8 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBar() {
+
+  let navigate = useNavigate();
+
+  const logoutAdmin = () => {
+    localStorage.removeItem('admin');
+    navigate("/admin/login");
+  }
   return (
     <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
   <div class="container-fluid">
@@ -25,6 +32,9 @@ export default function NavBar() {
           <Link class="nav-link" to="/admin/user">Users</Link>
         </li>
       </ul>
+      <div className='d-flex'>
+        <div className='d-flex'> <button className='btn nav-btn' onClick={logoutAdmin}>LogOut</button></div>
+        </div>
     </div>
   </div>
 </nav>

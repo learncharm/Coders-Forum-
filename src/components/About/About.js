@@ -76,9 +76,9 @@ export default function About() {
                         <h4>2. Avnish Bharadva: </h4>
                         <p className='m-3'>Intermediate Frontend Developer with a demonstrated history of working in the e-learning industry. Skilled in HTML, Cascading Style Sheets (CSS), Javascript , Java and Web Development. Strong engineering professional with a BCA focused in Web Developer from SSSDIIT College.</p>
                         <div className="social m-3">
-                           <a href="https://linkedin.com/in/krupesh-is-here" className='mx-3'><box-icon name='linkedin' type='logo' animation='tada' color='#0076b4' ></box-icon></a>
-                           <a href="https://github.com/tkrupesh14" className='mx-3'><box-icon name='github' type='logo' animation='tada' ></box-icon></a>
-                           <a href="https://twitter.com/krupesh_is_here" className='mx-3'><box-icon name='twitter' type='logo' animation='tada' color='#1ca1f3' ></box-icon></a>
+                           <a href="https://www.linkedin.com/in/avnish-bharadva/" className='mx-3'><box-icon name='linkedin' type='logo' animation='tada' color='#0076b4' ></box-icon></a>
+                           <a href="https://github.com/avnishbharadva" className='mx-3'><box-icon name='github' type='logo' animation='tada' ></box-icon></a>
+                           <a href="https://twitter.com/AvnishBharadva8" className='mx-3'><box-icon name='twitter' type='logo' animation='tada' color='#1ca1f3' ></box-icon></a>
                             </div>
                     </div>
                 </div>

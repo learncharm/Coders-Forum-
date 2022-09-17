@@ -8,6 +8,7 @@ import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
 import AdminThread from "./components/Admin/Thread/Thread";
+import AdminLogin from "./components/Admin/Login/Login";
 import AdminComment from "./components/Admin/Comment/Comment";
 import Thread from "./components/Thread/Thread";
 import Pthread from "./components/Pthread/Pthread";
@@ -63,6 +64,7 @@ function App() {
         {/* <NavBar /> */}
           <Routes>
             <Route path='/admin' element={<Admin />}></Route>
+            <Route path='/admin/login' element={<AdminLogin />}></Route>
             <Route path='/admin/category' element={<Category />}></Route>
             <Route path='/admin/thread' element={<AdminThread />}></Route>
             <Route path='/admin/comment' element={<AdminComment />}></Route>
