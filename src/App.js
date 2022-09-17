@@ -3,6 +3,7 @@ import './App.css';
 import Home from "./components/home";
 // import NavBar from './components/NavBar/NavBar';
 import Admin from "./components/Admin/Admin";
+import About from "./components/About/About";
 import Signup from "./components/Signup/Signup";
 import Login from "./components/Login/Login";
 import Profile from "./components/Profile/Profile";
@@ -30,6 +31,22 @@ function App() {
           // Call the client code that will react to the received command
           window.location.href = '/admin';
         }
+        if (commandData.command === 'adminThreads') {
+          // Call the client code that will react to the received command
+          window.location.href = '/admin/thread';
+        }
+        if (commandData.command === 'adminCategory') {
+          // Call the client code that will react to the received command
+          window.location.href = '/admin/category';
+        }
+        if (commandData.command === 'adminComments') {
+          // Call the client code that will react to the received command
+          window.location.href = '/admin/comment';
+        }
+        if (commandData.command === 'adminUsers') {
+          // Call the client code that will react to the received command
+          window.location.href = '/admin/user';
+        }
         if (commandData.command === 'homePage') {
           // Call the client code that will react to the received command
           window.location.href = '/';
@@ -55,6 +72,7 @@ function App() {
           <Routes>
           
             <Route path='/' element={<Home />}></Route>
+            <Route path='/about' element={<About />}></Route>
             <Route path='/profile' element={<Profile />}></Route>
             <Route path='/signup' element={<Signup />}></Route>
             <Route path='/login' element={<Login />}></Route>
