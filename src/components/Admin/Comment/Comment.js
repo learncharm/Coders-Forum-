@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { useNavigate } from 'react-router-dom'
 
 export default function Comment() {
 
+  let navigate = useNavigate();
   let count = 0;
+
+  const checkAdmin = () => {
+    if(localStorage.getItem('admin')!=="true")
+      navigate("/admin/login");
+  }
 
   const [comment, setComment] = useState([]);
 
@@ -43,6 +50,7 @@ export default function Comment() {
   }
 
   useEffect(() => {
+    checkAdmin();
     getAllComment();
     getUser();
   }, []);

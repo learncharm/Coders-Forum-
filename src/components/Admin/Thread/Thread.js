@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { useNavigate } from 'react-router-dom'
 
 export default function Thread() {
+  let navigate = useNavigate();
+
   let count = 0;
   const [thread, setThread] = useState([]);
+
+  const checkAdmin = () => {
+    if(localStorage.getItem('admin')!=="true")
+      navigate("/admin/login");
+  }
 
   const getAllThread = async () => {
     //API Call
@@ -41,6 +49,7 @@ export default function Thread() {
   }
 
   useEffect(() => {
+    checkAdmin();
     getAllThread();
     getUser();
   }, []);

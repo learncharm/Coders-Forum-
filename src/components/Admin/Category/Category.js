@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '../NavBar/NavBar';
+import { useNavigate } from 'react-router-dom'
 
 export default function Category() {
 
+    let navigate = useNavigate();
+
     let count = 0;
+
+    const checkAdmin = () => {
+        if(localStorage.getItem('admin')!=="true")
+          navigate("/admin/login");
+      }
 
     const [category, setCategory] = useState([]);
     const getCategory = async () => {
@@ -33,6 +41,7 @@ export default function Category() {
       }
 
     useEffect(() => {
+        checkAdmin();
         getCategory();
     }, [])
 

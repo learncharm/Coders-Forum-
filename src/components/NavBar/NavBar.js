@@ -47,7 +47,6 @@ export default function NavBar() {
             <div className="navbar-nav">
               <Link className="nav-link" aria-current="page" to="/">Home</Link>
               <Link className="nav-link" to="/about">About</Link>
-              <a className="nav-link" href="#">Contact</a>
               <Link className="nav-link" to='/#feedback'>Feedback</Link>
             </div>
           </div>

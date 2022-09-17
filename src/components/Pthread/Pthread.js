@@ -101,7 +101,7 @@ export default function Pthread(props) {
                     return <p>By {users.name}</p>
                 })}
                 <div class="share">
-                  <h4>Share Category</h4>
+                  <h4>Share Thread</h4>
                   <a href={`https://wa.me/?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="mx-2" target="_blank" ><box-icon name='whatsapp' type='logo' color='#1ad23f' ></box-icon></a>
                   <a href={`https://twitter.com/compose/tweet?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} target="_blank" className="mx-2"><box-icon name='twitter' type='logo'  color='#1ca1f3' ></box-icon></a>
                   <a href={`https://telegram.me/share/url?url=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="mx-2" target="_blank" ><box-icon name='telegram' type='logo'  color='#1D93E2' ></box-icon></a>
@@ -120,7 +120,7 @@ export default function Pthread(props) {
             </div>
             <button type="submit" className="btn btn-primary nav-btn  thread-btn">Add Comment</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
-          </form> </div> : <div>Login Kro Pela Chana Muna Comment Krva Mate</div>}
+          </form> </div> : <div>Login To Post Comment...</div>}
 
           <div className='container py-2'>
             {comment.length === 0 && 'No Comments To Display...'}
