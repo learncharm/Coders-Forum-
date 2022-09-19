@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './Login.css'
 
@@ -6,6 +6,12 @@ export default function Login() {
 
     let navigate = useNavigate();
 
+    const checkUser = () => {
+        if(localStorage.getItem('admin'))
+        {
+          navigate("/admin");
+        }
+      }
     const checkAdmin = () => {
         let name = document.getElementById('name');
         let password = document.getElementById('password')
@@ -19,6 +25,10 @@ export default function Login() {
         else
             alert("Login Failed...")
     }
+
+    useEffect(() => {
+        checkUser();
+      }, []);
 
   return ( 
     <>

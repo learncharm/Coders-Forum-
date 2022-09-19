@@ -56,7 +56,7 @@ export default function NavBar() {
 
             {!localStorage.getItem('token') ? <div><Link to="/signup" className="btn nav-btn">Sign Up</Link>
               <Link to="/login" className="btn nav-btn">Log In</Link></div>
-              : <div className='d-flex'> <button className='btn nav-btn' onClick={handleLogout}>LogOut</button> <Link to="/profile"><div className='profile'><img src={UserImg} alt="" /></div></Link></div>
+              : <div className='d-flex'><button className='btn nav-btn'><a href="https://av-text-utils.netlify.app/">TextAnalyzer</a></button> <button className='btn nav-btn' onClick={handleLogout}>LogOut</button> <Link to="/profile"><div className='profile'><img src={UserImg} alt="" /></div></Link></div>
             }
           
           </div>

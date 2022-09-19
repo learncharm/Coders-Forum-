@@ -2,11 +2,20 @@ import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
 import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 export default function Profile() {
 
+  let navigate = useNavigate();
   let tQues = 0;
   const [user, setUser] = useState([]);
+
+  const checkUser = () => {
+    if(!localStorage.getItem('token'))
+    {
+      navigate("/");
+    }
+  }
 
   const getUser = async () => {
     //API Call
@@ -91,6 +100,7 @@ export default function Profile() {
   }
 
   useEffect(() => {
+    checkUser();
     getUser();
     getAllThread();
     getAllComment();
