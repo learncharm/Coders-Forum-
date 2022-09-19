@@ -1,30 +1,36 @@
 import React from 'react';
 import './footer.css';
+import 'boxicons';
+
 
 export default function Footer() {
   return (
     <div className=' navbar navbar-expand-lg mt-4 footerCss'>
 <footer class="text-center text-lg-start text-muted">
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-    <div class="me-5 d-none d-lg-block">
+    <div class="me-3 d-none d-lg-block">
       <span>Get connected with us on social networks:</span>
     </div>
 
     <div>
       <a href="" class="me-4 link-secondary">
-        <i class="fab fa-facebook-f"></i>
+      <box-icon name='twitter' type='logo'  color='#fff' ></box-icon>
       </a>
       <a href="" class="me-4 link-secondary">
-        <i class="fab fa-twitter"></i>
+      <box-icon name='linkedin' type='logo'  color='#fff' ></box-icon>
+
       </a>
       <a href="" class="me-4 link-secondary">
-        <i class="fab fa-google"></i>
+      <box-icon name='instagram' type='logo'  color='#fff' ></box-icon>
+
       </a>
       <a href="" class="me-4 link-secondary">
-        <i class="fab fa-instagram"></i>
+      <box-icon name='whatsapp' type='logo'  color='#fff' ></box-icon>
+
       </a>
       <a href="" class="me-4 link-secondary">
-        <i class="fab fa-linkedin"></i>
+      <box-icon name='github' type='logo'  color='#fff' ></box-icon>
+
       </a>
       <a href="" class="me-4 link-secondary">
         <i class="fab fa-github"></i>
@@ -40,8 +46,7 @@ export default function Footer() {
             <i class="fas fa-gem me-3 text-secondary"></i>Learncharm Coders Forum
           </h6>
           <p>
-            Here you can use rows and columns to organize your footer content. Lorem ipsum
-            dolor sit amet, consectetur adipisicing elit.
+            A free Coders Forum Where You can Put Your Coding Queries & Get Solution imiddiatly. 
           </p>
         </div>
 

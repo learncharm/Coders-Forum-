@@ -1,5 +1,6 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import './Login.css'
 
 export default function Login() {
 
@@ -21,7 +22,7 @@ export default function Login() {
 
   return ( 
     <>
-        <div className='container add-thread'>
+        <div className='container login add-thread'>
                 <form onSubmit={checkAdmin}>
                     <h3 className='my-2'>Login</h3>
                     {/* <div className="mb-3">
