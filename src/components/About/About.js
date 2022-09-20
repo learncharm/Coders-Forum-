@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBar from '../NavBar/NavBar';
 import 'boxicons'
+import Footer from '../Footer/Footer';
 
 
 
@@ -83,6 +84,8 @@ export default function About() {
                     </div>
                 </div>
             </div>
+
+            <Footer/>
         </div>
     )
 }

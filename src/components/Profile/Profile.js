@@ -109,7 +109,7 @@ export default function Profile() {
   return (
     <>
       <NavBar />
-      <div className="container">
+      <div className="container mb-5 mt-3">
         <h3 className='my-2'>Name : {user.name}</h3>
         <h4 className=''>Email : {user.email}</h4>
         <h4 className=''>Total Question : {thread.length}</h4>

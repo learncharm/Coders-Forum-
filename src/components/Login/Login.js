@@ -58,7 +58,7 @@ export default function Login() {
     return (
         <>
         <NavBar/>
-            <div className='container add-thread'>
+            <div className='container add-thread mb-5'>
                 <form method='POST'  onSubmit={PostData}>
                     <h3 className='my-2'>Login</h3>
                     {/* <div className="mb-3">

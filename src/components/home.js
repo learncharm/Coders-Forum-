@@ -3,6 +3,7 @@ import CategoryCard from './CategoryCard/CategoryCard';
 import NavBar from './NavBar/NavBar';
 import Footer from './Footer/Footer';
 import emailjs from 'emailjs-com';
+import Testimonial from './Testimonial/Testimonial';
 
 
 export default function Home() {
@@ -28,15 +29,17 @@ export default function Home() {
     <>
     <NavBar/>
     <div>
-      <div className="container my-3">
+      <div className="container">
         
         <section className="categories text-center">
-        <h2 className='text-center' id="feedback">Categories</h2>
+        <h2 className='text-center mt-3' id="feedback">Categories</h2>
           <hr />
         </section>
           <CategoryCard />
         <hr />
-        <section className='feedback mt-3'>
+
+        <Testimonial/>
+        <section className='feedback mt-3' style={{marginBottom:80}}>
         <h2 className='text-center' id="feedback">Feedback</h2>
             <p className='my-2 text-center'>Give Your Feedback</p>
         <div className='add-thread'><form method='POST' ref={formRef}  className='add-thread-form' onSubmit={sendEmail}>
@@ -46,11 +49,11 @@ export default function Home() {
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Email</label>
-              <input type="email"  name="description" name = "email" className="form-control" id="description" minLength={6} required/>
+              <input type="email" name = "email" className="form-control" id="description" minLength={6} required/>
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Message</label>
-              <textarea name="message" name="message" id="" className='form-control' cols="20" rows="7"></textarea>
+              <textarea name="message" id="" className='form-control' cols="20" rows="7"></textarea>
             </div>
             <button type="submit" className="btn btn-primary thread-btn">Send Feedback</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}

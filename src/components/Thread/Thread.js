@@ -91,11 +91,11 @@ export default function Thread(props) {
                 <p className='my-2'>{tcs.description}</p>
                 
                
-                <div class="share">
-                  <h4>Share Category</h4>
-                  <a href={`https://wa.me/?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="mx-2" target="_blank" ><box-icon name='whatsapp' type='logo' color='#1ad23f' ></box-icon></a>
-                  <a href={`https://twitter.com/compose/tweet?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} target="_blank" className="mx-2"><box-icon name='twitter' type='logo'  color='#1ca1f3' ></box-icon></a>
-                  <a href={`https://telegram.me/share/url?url=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="mx-2" target="_blank" ><box-icon name='telegram' type='logo'  color='#1D93E2' ></box-icon></a>
+                <div class="share mt-3">
+                  {/* <h4>Share Category</h4> */}
+                  <a href={`https://wa.me/?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="" target="_blank" ><box-icon name='whatsapp' type='logo' color='#1ad23f' ></box-icon></a>
+                  <a href={`https://twitter.com/compose/tweet?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} target="_blank" className="mx-4"><box-icon name='twitter' type='logo'  color='#1ca1f3' ></box-icon></a>
+                  <a href={`https://telegram.me/share/url?url=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="" target="_blank" ><box-icon name='telegram' type='logo'  color='#1D93E2' ></box-icon></a>
                 </div>
             
               </>
@@ -110,7 +110,7 @@ export default function Thread(props) {
             </div>
             <div className="mb-3">
               <label htmlFor="exampleInputPassword1" className="form-label">Description</label>
-              <textarea type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required rows="7"></textarea>
+              <input type="text" onChange={handleInputs} name="description" value={userThread.description} className="form-control" id="description" minLength={6} required rows="7" />
             </div>
             <button type="submit" className="btn btn-primary thread-btn">Submit</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
