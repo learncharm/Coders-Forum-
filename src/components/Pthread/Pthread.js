@@ -100,11 +100,11 @@ export default function Pthread(props) {
                   if (users._id == tcs.userid)
                     return <p>By {users.name}</p>
                 })}
-                <div class="share">
-                  <h4>Share Thread</h4>
-                  <a href={`https://wa.me/?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="mx-2" target="_blank" ><box-icon name='whatsapp' type='logo' color='#1ad23f' ></box-icon></a>
-                  <a href={`https://twitter.com/compose/tweet?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} target="_blank" className="mx-2"><box-icon name='twitter' type='logo'  color='#1ca1f3' ></box-icon></a>
-                  <a href={`https://telegram.me/share/url?url=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="mx-2" target="_blank" ><box-icon name='telegram' type='logo'  color='#1D93E2' ></box-icon></a>
+                <div class="share mt-3">
+                  {/* <h4>Share Thread</h4> */}
+                  <a href={`https://wa.me/?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="" target="_blank" ><box-icon name='whatsapp' type='logo' color='#1ad23f' ></box-icon></a>
+                  <a href={`https://twitter.com/compose/tweet?text=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} target="_blank" className="mx-4"><box-icon name='twitter' type='logo'  color='#1ca1f3' ></box-icon></a>
+                  <a href={`https://telegram.me/share/url?url=get ${tcs.title} Solution On Learncharm Coders Forum ${window.location.href}`} className="" target="_blank" ><box-icon name='telegram' type='logo'  color='#1D93E2' ></box-icon></a>
                 </div>
                
             
@@ -116,12 +116,13 @@ export default function Pthread(props) {
             <h3 className='my-2'>Add Comment</h3>
             <div className="mb-3">
               <label htmlFor="exampleInputEmail1" className="form-label">Comment</label>
-              <textarea type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" minLength={6} required rows={7}></textarea>
+              <input type="text" name='description' value={userComment.description} onChange={handleInputs} className="form-control" id="description" aria-describedby="emailHelp" minLength={6} required rows={7}/>
             </div>
             <button type="submit" className="btn btn-primary nav-btn  thread-btn">Add Comment</button>
             {/* <input type="submit" onClick={PostData} className="btn btn-primary" value="Submit" /> */}
           </form> </div> : <div>Login To Post Comment...</div>}
 
+          <h3 className='mt-4' >Comments</h3>
           <div className='container py-2'>
             {comment.length === 0 && 'No Comments To Display...'}
           </div>
@@ -129,7 +130,7 @@ export default function Pthread(props) {
           {comment.map((comments) => {
             return <>
               
-              <div className="card ps-4 my-4">
+              <div className="card ps-4 mt-2 mb-4">
         <div className="row">
           <div className="col-md-8 mb-3">
       

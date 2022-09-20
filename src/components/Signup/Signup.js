@@ -51,7 +51,7 @@ export default function Signup() {
     return (
         <>
         <NavBar/>
-            <div className='container add-thread'>
+            <div className='container add-thread mb-5'>
                 <form method='POST' onSubmit={PostData}>
                     <h3 className='my-2'>Sign Up</h3>
                     <div className="mb-3">
